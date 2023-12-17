@@ -1,5 +1,7 @@
 //* Libraries imports
-import { View, Text } from "react-native";
+
+//* Components imports
+import { Header } from "@components/Header";
 
 //* Styles imports
 import * as S from "./styles";
@@ -7,7 +9,7 @@ import * as S from "./styles";
 export default function Groups() {
   return (
     <S.Container>
-      <S.Title>Groups</S.Title>
+      <Header />
     </S.Container>
   )
 }
