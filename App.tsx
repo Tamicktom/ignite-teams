@@ -1,10 +1,10 @@
 //* Libraries imports
-import { ActivityIndicator } from "react-native";
 import { ThemeProvider } from "styled-components";
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
 
 //* Components imports
 import Groups from "@screens/Groups";
+import { Loading } from "@components/Loading";
 
 //* Themes imports
 import theme from "@theme/index";
@@ -20,9 +20,8 @@ export default function App() {
       {
         fontsLoaded
           ? <Groups />
-          : <ActivityIndicator />
+          : <Loading />
       }
     </ThemeProvider>
   );
 }
-
