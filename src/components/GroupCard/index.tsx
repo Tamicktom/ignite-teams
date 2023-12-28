@@ -8,9 +8,9 @@ interface Props extends TouchableOpacityProps {
   title: string;
 }
 
-export default function GroupCard({ title, ...props }: Props) {
+export default function GroupCard({ title, ...rest }: Props) {
   return (
-    <S.Container {...props}>
+    <S.Container {...rest}>
       <S.Icon />
       <S.Title>{title}</S.Title>
     </S.Container>
