@@ -13,7 +13,7 @@ import { ListEmpty } from "@components/ListEmpty";
 import * as S from "./styled";
 
 export function Players() {
-  const [players, setPlayers] = useState<number>(2);
+  const [players, setPlayers] = useState<string[]>([]);
 
   return (
     <S.Container>
@@ -38,17 +38,26 @@ export function Players() {
           horizontal
         />
         <S.NumbersOfPlayers>
-          {players} pessoas
+          {players.length} pessoas
         </S.NumbersOfPlayers>
       </S.HeaderList>
 
       <FlatList
-        data={["Jogador 1", "Jogador 2", "Jogador 3", "Jogador 4", "Jogador 5"]}
+        data={players}
         keyExtractor={item => item}
         renderItem={({ item }) => (
           <PlayerCard name={item} onRemove={() => { }} />
         )}
-        ListEmptyComponent={<ListEmpty message="" />}
+        ListEmptyComponent={<ListEmpty message="Não há pessoas nesse time." />}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={[
+          {
+            paddingBottom: 100,
+          },
+          !players.length && {
+            flex: 1,
+          }
+        ]}
       />
 
     </S.Container>
