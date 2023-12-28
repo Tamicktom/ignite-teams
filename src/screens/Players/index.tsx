@@ -6,6 +6,7 @@ import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
 import { ButtonIcon } from "@components/ButtonIcon";
 import { Input } from "@components/Input";
+import { Filter } from "@components/Filter";
 import * as S from "./styled";
 
 export function Players() {
@@ -21,6 +22,8 @@ export function Players() {
         />
         <ButtonIcon icon="add" />
       </S.Form>
+
+      <Filter title="Time A" isActive />
     </S.Container>
   );
 }
