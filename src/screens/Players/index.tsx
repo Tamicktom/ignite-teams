@@ -13,7 +13,7 @@ export function Players() {
       <Header showBackButton />
       <Highlight title="Nome do grupo" subtitle="adicione a galera e separe os times" />
 
-      <ButtonIcon />
+      <ButtonIcon icon="home" type="PRIMARY" />
     </S.Container>
   );
 }
