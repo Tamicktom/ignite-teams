@@ -9,11 +9,14 @@ import { GroupCard } from "@components/GroupCard";
 import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
 
+//* Hooks imports
+import { useGroups } from "@hooks/useGroups";
+
 //* Styles imports
 import * as S from "./styles";
 
 export default function Groups() {
-  const [groups, setGroups] = useState<string[]>([]);
+  const { groups } = useGroups();
 
   return (
     <S.Container>

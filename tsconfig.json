@@ -9,6 +9,7 @@
       "@routes/*": ["./src/routes/*"],
       "@storage/*": ["./src/storage/*"],
       "@theme/*": ["./src/theme/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },
