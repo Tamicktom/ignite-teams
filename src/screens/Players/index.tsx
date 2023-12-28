@@ -8,6 +8,8 @@ import { Highlight } from "@components/Highlight";
 import { ButtonIcon } from "@components/ButtonIcon";
 import { Input } from "@components/Input";
 import { Filter } from "@components/Filter";
+import { PlayerCard } from "@components/PlayerCard";
+import { ListEmpty } from "@components/ListEmpty";
 import * as S from "./styled";
 
 export function Players() {
@@ -39,6 +41,15 @@ export function Players() {
           {players} pessoas
         </S.NumbersOfPlayers>
       </S.HeaderList>
+
+      <FlatList
+        data={["Jogador 1", "Jogador 2", "Jogador 3", "Jogador 4", "Jogador 5"]}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <PlayerCard name={item} onRemove={() => { }} />
+        )}
+        ListEmptyComponent={<ListEmpty message="" />}
+      />
 
     </S.Container>
   );
