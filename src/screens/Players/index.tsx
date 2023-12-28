@@ -4,6 +4,7 @@
 //* Components imports
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
+import { ButtonIcon } from "@components/ButtonIcon";
 import * as S from "./styled";
 
 export function Players() {
@@ -11,7 +12,8 @@ export function Players() {
     <S.Container>
       <Header showBackButton />
       <Highlight title="Nome do grupo" subtitle="adicione a galera e separe os times" />
-    
+
+      <ButtonIcon />
     </S.Container>
   );
 }
