@@ -1,6 +1,7 @@
 //* Libraries imports
+import { useCallback } from "react";
 import { FlatList } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 //* Components imports
 import { Header } from "@components/Header";
@@ -23,6 +24,10 @@ export function Groups() {
   const handleNewGroup = () => {
     navigation.navigate('new');
   }
+
+  useFocusEffect(useCallback(() => {
+    loadGroups();
+  }, []));
 
   return (
     <S.Container>
