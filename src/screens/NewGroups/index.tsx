@@ -1,4 +1,6 @@
 //* Libraries imports
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 //* Hooks imports
 import { useGroups } from "@hooks/useGroups";
@@ -11,6 +13,14 @@ import { Input } from "@components/Input";
 import { Button } from "@components/Button";
 
 export function NewGroups() {
+  const [name, setName] = useState('');
+
+  const navigation = useNavigation();
+
+  const handleNewGroup = () => {
+    navigation.navigate('players', { group: name });
+  }
+
   return (
     <S.Container>
       <Header showBackButton />
@@ -22,8 +32,15 @@ export function NewGroups() {
           subtitle="Crie um grupo para adicionar as pessoas"
         />
 
-        <Input placeholder="Nome da turma" />
-        <Button label="Criar" style={{ marginTop: 20 }} />
+        <Input
+          placeholder="Nome da turma"
+          onChangeText={setName}
+        />
+        <Button
+          label="Criar"
+          style={{ marginTop: 20 }}
+          onPress={handleNewGroup}
+        />
 
       </S.Content>
     </S.Container>

@@ -15,7 +15,7 @@ export function Header(props: HeaderProps) {
   const navigation = useNavigation();
 
   const handleGoBack = () => {
-    navigation.goBack();
+    navigation.navigate('groups');
   }
 
   return (
