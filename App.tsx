@@ -2,11 +2,10 @@
 import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto";
+import { NavigationContainer } from '@react-navigation/native';
 
 //* Components imports
-import Groups from "@screens/Groups";
-import { NewGroups } from "@screens/NewGroups";
-import { Players } from "@screens/Players";
+import Routes from "@routes/app.routes";
 import { Loading } from "@components/Loading";
 
 //* Themes imports
@@ -20,12 +19,14 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
-      {
-        fontsLoaded
-          ? <Players />
-          : <Loading />
-      }
+      <NavigationContainer>
+        <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
+        {
+          fontsLoaded
+            ? <Routes />
+            : <Loading />
+        }
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
