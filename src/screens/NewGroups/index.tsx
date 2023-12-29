@@ -19,8 +19,10 @@ export function NewGroups() {
   const navigation = useNavigation();
 
   const handleNewGroup = async () => {
-    const tmp = await saveGroup(name);
-    navigation.navigate('players', { group: tmp.id });
+    if (name) {
+      const tmp = await saveGroup(name);
+      navigation.navigate('players', { group: tmp.id });
+    }
   }
 
   return (
