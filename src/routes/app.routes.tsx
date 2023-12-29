@@ -6,13 +6,7 @@ import { Groups } from '@screens/Groups';
 import { Players } from "@screens/Players";
 import { NewGroups } from '@screens/NewGroups';
 
-type RootStackParamList = {
-  Groups: undefined;
-  Players: undefined;
-  NewGroups: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 export default function AppRoutes() {
   return (
