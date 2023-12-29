@@ -5,7 +5,7 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/
 import { NavigationContainer } from '@react-navigation/native';
 
 //* Components imports
-import Routes from "@routes/app.routes";
+import { Routes } from "@routes/index";
 import { Loading } from "@components/Loading";
 
 //* Themes imports
@@ -19,14 +19,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
-        {
-          fontsLoaded
-            ? <Routes />
-            : <Loading />
-        }
-      </NavigationContainer>
+      <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
+      {
+        fontsLoaded
+          ? <Routes />
+          : <Loading />
+      }
     </ThemeProvider>
   );
 }
