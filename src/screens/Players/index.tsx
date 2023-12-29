@@ -1,6 +1,7 @@
 //* Libraries imports
 import { useState } from "react";
 import { FlatList } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
 //* Components imports
 import { Header } from "@components/Header";
@@ -13,13 +14,20 @@ import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
 import * as S from "./styled";
 
+type RouteParams = {
+  group: string;
+}
+
 export function Players() {
   const [players, setPlayers] = useState<string[]>([]);
+
+  const route = useRoute();
+  const params = route.params as RouteParams;
 
   return (
     <S.Container>
       <Header showBackButton />
-      <Highlight title="Nome do grupo" subtitle="adicione a galera e separe os times" />
+      <Highlight title={params.group} subtitle="adicione a galera e separe os times" />
 
       <S.Form>
         <Input
