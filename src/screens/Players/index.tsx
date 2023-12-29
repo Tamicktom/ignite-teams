@@ -3,6 +3,9 @@ import { useState } from "react";
 import { FlatList } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
+//* Hooks imports
+import { useGroups } from "@hooks/useGroups";
+
 //* Components imports
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
@@ -15,19 +18,22 @@ import { Button } from "@components/Button";
 import * as S from "./styled";
 
 type RouteParams = {
-  group: string;
+  group: string; //id
 }
 
 export function Players() {
+  const { groups, deleteGroup } = useGroups();
   const [players, setPlayers] = useState<string[]>([]);
 
   const route = useRoute();
   const params = route.params as RouteParams;
 
+  const group = groups.find(item => item.id === params.group);
+
   return (
     <S.Container>
       <Header showBackButton />
-      <Highlight title={params.group} subtitle="adicione a galera e separe os times" />
+      <Highlight title={group?.name ?? ""} subtitle="adicione a galera e separe os times" />
 
       <S.Form>
         <Input
@@ -69,7 +75,11 @@ export function Players() {
         ]}
       />
 
-      <Button label="Remover Turma" type="SECONDARY" />
+      <Button
+        label="Remover Turma"
+        type="SECONDARY"
+        onPress={() => deleteGroup(params.group)}
+      />
 
     </S.Container>
   );

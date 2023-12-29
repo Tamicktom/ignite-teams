@@ -16,7 +16,7 @@ import { useGroups } from "@hooks/useGroups";
 import * as S from "./styles";
 
 export function Groups() {
-  const { groups } = useGroups();
+  const { groups, loadGroups, loading } = useGroups();
 
   const navigation = useNavigation();
 
@@ -34,12 +34,18 @@ export function Groups() {
 
       <FlatList
         data={groups}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => <GroupCard title={item} />}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <GroupCard
+          key={item.id}
+          title={item.name}
+          onPress={() => navigation.navigate('players', { group: item.id })}
+        />}
         style={{ width: '100%' }}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={<ListEmpty message="Que tal cadastrar a primeira turma?" />}
         contentContainerStyle={groups.length === 0 && { flex: 1 }}
+        refreshing={loading}
+        onRefresh={loadGroups}
       />
 
       <Button

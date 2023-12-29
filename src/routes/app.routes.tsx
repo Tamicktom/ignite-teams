@@ -15,7 +15,7 @@ export default function AppRoutes() {
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.COLORS.GRAY_600 }}>
-      <Stack.Navigator screenOptions={{ headerShown: false, freezeOnBlur: true }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="groups" component={Groups} />
         <Stack.Screen name="players" component={Players} />
         <Stack.Screen name="new" component={NewGroups} />

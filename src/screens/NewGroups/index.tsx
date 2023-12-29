@@ -14,11 +14,13 @@ import { Button } from "@components/Button";
 
 export function NewGroups() {
   const [name, setName] = useState('');
+  const { saveGroup } = useGroups();
 
   const navigation = useNavigation();
 
-  const handleNewGroup = () => {
-    navigation.navigate('players', { group: name });
+  const handleNewGroup = async () => {
+    const tmp = await saveGroup(name);
+    navigation.navigate('players', { group: tmp.id });
   }
 
   return (
