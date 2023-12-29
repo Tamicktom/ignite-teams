@@ -19,6 +19,8 @@ export function useGroups() {
     const groupsStorage = await AsyncStorage.getItem("groups");
     if (groupsStorage) {
       setGroups(JSON.parse(groupsStorage));
+    } else {
+      setGroups([]);
     }
     setLoading(false);
   }
