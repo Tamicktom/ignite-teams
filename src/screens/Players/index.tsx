@@ -1,7 +1,7 @@
 //* Libraries imports
 import { useState } from "react";
-import { FlatList } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { FlatList, Alert } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 //* Hooks imports
 import { useGroups } from "@hooks/useGroups";
@@ -25,10 +25,31 @@ export function Players() {
   const { groups, deleteGroup } = useGroups();
   const [players, setPlayers] = useState<string[]>([]);
 
+  const navigation = useNavigation();
   const route = useRoute();
   const params = route.params as RouteParams;
 
   const group = groups.find(item => item.id === params.group);
+
+  const handleRemoveGroup = () => {
+    Alert.alert(
+      "Remover Turma",
+      "Tem certeza que você deseja remover essa turma?",
+      [
+        {
+          text: "Não",
+          style: "cancel",
+        },
+        {
+          text: "Sim",
+          onPress: async () => {
+            await deleteGroup(params.group);
+            navigation.navigate("groups");
+          }
+        }
+      ]
+    )
+  }
 
   return (
     <S.Container>
@@ -78,7 +99,7 @@ export function Players() {
       <Button
         label="Remover Turma"
         type="SECONDARY"
-        onPress={() => deleteGroup(params.group)}
+        onPress={handleRemoveGroup}
       />
 
     </S.Container>
