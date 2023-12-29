@@ -1,11 +1,11 @@
 //* Libraries imports
 import { useEffect, useState } from "react";
 
-export const useGroups = () => {
+export function useGroups() {
   const [groups, setGroups] = useState<string[]>([]);
 
   return {
     groups,
     setGroups,
   };
-};
+}

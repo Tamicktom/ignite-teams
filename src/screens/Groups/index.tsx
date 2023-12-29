@@ -10,11 +10,13 @@ import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
 
 //* Hooks imports
+import { useGroups } from "@hooks/useGroups";
 
 //* Styles imports
 import * as S from "./styles";
 
 export function Groups() {
+  const { groups } = useGroups();
 
   return (
     <S.Container>
@@ -24,7 +26,7 @@ export function Groups() {
         subtitle="Aqui você pode criar e gerenciar seus grupos"
       />
 
-      {/* <FlatList
+      <FlatList
         data={groups}
         keyExtractor={(item) => item}
         renderItem={({ item }) => <GroupCard title={item} />}
@@ -32,7 +34,7 @@ export function Groups() {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={<ListEmpty message="Que tal cadastrar a primeira turma?" />}
         contentContainerStyle={groups.length === 0 && { flex: 1 }}
-      /> */}
+      />
 
       <Button
         label="Criar grupo"
