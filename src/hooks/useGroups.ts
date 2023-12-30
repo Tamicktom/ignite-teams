@@ -26,7 +26,7 @@ export function useGroups() {
   }
 
   async function saveGroup(group: string) {
-    const tmp = { name: group, id: randomId() };
+    const tmp: Group = { name: group, id: randomId() };
     const newGroups = [...groups, tmp];
     await AsyncStorage.setItem("groups", JSON.stringify(newGroups));
     setGroups(newGroups);
