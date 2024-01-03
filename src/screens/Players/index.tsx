@@ -77,7 +77,7 @@ export function Players() {
   return (
     <S.Container>
       <Header showBackButton />
-      <Highlight title={group?.name ?? ""} subtitle="adicione a galera e separe os times" />
+      <Highlight title={group?.name ?? ""} subtitle="adicione as pessoas e separe os times" />
 
       <S.Form>
         <Input
@@ -127,7 +127,7 @@ export function Players() {
             onRemove={() => { handleRemovePlayer(item.id) }}
           />
         )}
-        ListEmptyComponent={<ListEmpty message="Não há pessoas nesse time." />}
+        ListEmptyComponent={<ListEmpty message="Não há pessoas nessa turma." />}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={[
           {

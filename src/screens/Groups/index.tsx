@@ -33,8 +33,8 @@ export function Groups() {
     <S.Container>
       <Header />
       <Highlight
-        title="Grupos"
-        subtitle="Aqui você pode criar e gerenciar seus grupos"
+        title="Turmas"
+        subtitle="Aqui você pode criar e gerenciar suas turmas."
       />
 
       <FlatList
@@ -54,7 +54,7 @@ export function Groups() {
       />
 
       <Button
-        label="Criar grupo"
+        label="Criar turmas"
         onPress={handleNewGroup}
       />
 
