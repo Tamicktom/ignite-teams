@@ -44,9 +44,14 @@ export function usePlayersByGroup(group_id: string) {
     loadPlayers();
   }
 
+  async function deleteAllPlayers() {
+    await AsyncStorage.removeItem(storageKey);
+    setPlayers([]);
+  }
+
   useEffect(() => {
     loadPlayers();
   }, []);
 
-  return { players, savePlayer, deletePlayer, loading, loadPlayers };
+  return { players, savePlayer, deletePlayer, loading, loadPlayers, deleteAllPlayers };
 }

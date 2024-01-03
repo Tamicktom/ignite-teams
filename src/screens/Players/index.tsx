@@ -28,11 +28,11 @@ export function Players() {
   const params = route.params as RouteParams;
 
   const [newPlayerName, setNewPlayerName] = useState("");
-  const [teams, setTeams] = useState<string[]>(["Time A", "Time B"]);
+  const teams = useState<string[]>(["Time A", "Time B"])[0];
   const [selectedTeam, setSelectedTeam] = useState("Time A");
   const { groups, deleteGroup } = useGroups();
 
-  const { players, deletePlayer, loadPlayers, savePlayer } = usePlayersByGroup(params.group);
+  const { players, deletePlayer, savePlayer, deleteAllPlayers } = usePlayersByGroup(params.group);
   const actualSelectedTeamPlayers = players.filter(item => item.team_id === selectedTeam);
 
   const group = groups.find(item => item.id === params.group);
@@ -50,9 +50,7 @@ export function Players() {
           text: "Sim",
           onPress: async () => {
             //delete all players from both teams
-            await Promise.all(players.map(async (item) => {
-              await deletePlayer(item.id);
-            }));
+            await deleteAllPlayers();
             await deleteGroup(params.group);
             navigation.navigate("groups");
           }
