@@ -1,11 +1,11 @@
 //* Libraries import
-import type { TouchableHighlightProps } from "react-native";
+import type { TouchableOpacityProps } from "react-native";
 
 //* Components import
 import type { ButtonTypeStyleProps } from './styled';
 import * as S from "./styled";
 
-interface Props extends TouchableHighlightProps {
+interface Props extends TouchableOpacityProps {
   label: string;
   type?: ButtonTypeStyleProps;
 }
