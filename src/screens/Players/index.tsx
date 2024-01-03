@@ -1,6 +1,6 @@
 //* Libraries imports
 import { useState } from "react";
-import { FlatList, Alert } from "react-native";
+import { FlatList, Alert, Keyboard } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 //* Hooks imports
@@ -69,6 +69,7 @@ export function Players() {
     await savePlayer(newPlayerName, selectedTeam);
 
     setNewPlayerName("");
+    Keyboard.dismiss();
   }
 
   const handleRemovePlayer = async (id: string) => {
